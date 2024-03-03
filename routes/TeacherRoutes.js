@@ -2,6 +2,8 @@ const express = require('express')
 
 const { getTeachers, getTeacher, createTeacher, deleteTeacher, updateTeacher } = require('../models/controller/TeacherController')
 
+const { fileCheck } = require('../routes/middleware/file_check')
+
 
 const router = express.Router();
 
@@ -12,7 +14,7 @@ router.get('/', getTeachers)
 router.get('/:id', getTeacher)
 
 //POST A NEW TEACHERS
-router.post('/', createTeacher)
+router.post('/', fileCheck, createTeacher)
 
 //DELETE A NEW TEACHERS
 router.delete('/:id', deleteTeacher)

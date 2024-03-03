@@ -4,18 +4,18 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const teacherSchema = new Schema({
-  photo: {
-    type: String,
-    required: true
-  },
   fullname: {
     type: String,
     required: true,
   },
-  course: {
+  profession: {
     type: String,
     required: true,
   },
+  photo: {
+    type: String,
+    required: true
+  }
 },
   { timestamps: true });
 
