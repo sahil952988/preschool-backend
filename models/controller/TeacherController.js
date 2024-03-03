@@ -26,9 +26,10 @@ const getTeacher = async (req, res) => {
 
 //create new workout
 const createTeacher = async (req, res) => {
-  const { fullname, profession, photo } = req.body
+  const { fullname, profession } = req.body
+  const photo = req.imagePath
   try {
-    const teacher = await Teacher.create({ fullname, profession, photo: req.imagePath })
+    const teacher = await Teacher.create({ fullname, profession, photo })
     res.status(200).json(teacher);
   } catch (error) {
     res.status(400).json({ error: error.message })

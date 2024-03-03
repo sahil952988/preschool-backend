@@ -2,13 +2,13 @@ const Class = require('../ClassModel')
 const mongoose = require('mongoose')
 
 
-// get all workout
+// get all class
 const getClasses = async (req, res) => {
   const classes = await Class.find({}).sort({ createdAt: - 1 });
   res.status(200).json(classes)
 }
 
-//get a single Workout
+//get a single class
 const getClass = async (req, res) => {
   const { id } = req.params
 
@@ -24,9 +24,10 @@ const getClass = async (req, res) => {
   res.status(200).json(classes)
 }
 
-//create new workout
+//create new class
 const createClass = async (req, res) => {
-  const { classname, photo, teacher, fee, age, time, capacity } = req.body
+  const { classname, teacher, fee, age, time, capacity } = req.body
+  const photo = req.imagePath
   try {
     const classes = await Class.create({ classname, photo, teacher, fee, age, time, capacity })
     res.status(200).json(classes);
@@ -36,7 +37,7 @@ const createClass = async (req, res) => {
 }
 
 
-//delete a teacher
+//delete a class
 const deleteClass = async (req, res) => {
   const { id } = req.params
 
