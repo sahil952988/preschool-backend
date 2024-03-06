@@ -54,7 +54,7 @@ const deleteClass = async (req, res) => {
 }
 
 
-//update a Teacher
+//update a class
 const updateClass = async (req, res) => {
   const { id } = req.params
 
@@ -62,7 +62,7 @@ const updateClass = async (req, res) => {
     res.status(404).json({ error: 'No such Class' })
   }
 
-  const classes = await Teacher.findOneAndUpdate({ _id: id }, { ...req.body })
+  const classes = await Class.findOneAndUpdate({ _id: id }, { ...req.body })
 
   if (!classes) {
     res.status(404).json({ error: 'No Such Class' });

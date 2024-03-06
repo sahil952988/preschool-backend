@@ -8,13 +8,13 @@ const { fileCheck } = require('../routes/middleware/file_check')
 const router = express.Router();
 
 //GET ALL Class
-router.get('/api/class', getClasses)
+router.get('/', getClasses)
 
 //GET A SINGLE Class
 router.get('/:id', getClass)
 
 //POST A NEW Class
-router.route('/api/add-class').post(fileCheck, createClass)
+router.post('/', fileCheck, createClass)
 
 //DELETE A NEW Class
 router.delete('/:id', deleteClass)

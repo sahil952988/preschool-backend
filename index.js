@@ -21,7 +21,7 @@ app.use(fileUpload({
 app.use(cors());
 //routes
 app.use('/api/teachers', teachers)
-app.use(classes)
+app.use('/api/class', classes)
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
